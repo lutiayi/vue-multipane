@@ -40,7 +40,9 @@ export default {
       if (resizer.className && resizer.className.match('multipane-resizer')) {
         let self = this;
         let { $el: container, layout } = self;
-
+        if (resizer.parentNode !== container) {
+          return;
+        }
         let pane = resizer.previousElementSibling;
         let {
           offsetWidth: initialPaneWidth,
